@@ -1,7 +1,7 @@
 // Dados completos dos voluntários
 const voluntarios = {
   "VOL-2025-IVFS-0001": {
-    nome: "Ana Luiza Barbosa",
+    nome: "Maria Marina Vizioli Pedroso da Cruz",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
@@ -51,97 +51,97 @@ const voluntarios = {
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0011": {
-    nome: "Fulano de Tal",
+    nome: "Vitória Carolayne Campos de Oliveira	",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0012": {
-    nome: "Ciclano da Silva",
+    nome: "Alline Áurea do Amaral Pirchio",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0013": {
-    nome: "Beltrano Oliveira",
+    nome: "Felipe Bueno Ribeiro",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0014": {
-    nome: "João dos Santos",
+    nome: "ELIZA SAYURI MOLITOR",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0015": {
-    nome: "Maria Souza",
+    nome: "Giovana de Godoy Trippia",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0016": {
-    nome: "José Pereira",
+    nome: "Andressa Teixeira Ibraim",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0017": {
-    nome: "Ana Costa",
+    nome: "Ana Laura Beraldi Cordella",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0018": {
-    nome: "Carlos Mendes",
+    nome: "Maria Luiza da Mata Campos Costa",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0019": {
-    nome: "Patrícia Alves",
+    nome: "Pedro Martin Barrios Luongo",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0020": {
-    nome: "Ricardo Nunes",
+    nome: "Ana Clara Luz Pereira",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0021": {
-    nome: "Fernanda Lima",
+    nome: "Victória Bertine Barreiro",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0022": {
-    nome: "Roberto Andrade",
+    nome: "Bianca Toyota Pinto",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0023": {
-    nome: "Amanda Santos",
+    nome: "José Mardeson Alexandre Felipe",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0024": {
-    nome: "Lucas Ferreira",
+    nome: "Gustavo Silva Esteves",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0025": {
-    nome: "Juliana Martins",
+    nome: "Bruna Milena de Bem Silva",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0026": {
-    nome: "Marcos Vinícius",
+    nome: "Sthéfany Spetanieri Santos",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0027": {
-    nome: "Tatiane Gomes",
+    nome: "Fúvia karolline Hipólito Duarte Cunha",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0028": {
-    nome: "Gustavo Henrique",
+    nome: "Ana Luiza Barbosa",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
   "VOL-2025-IVFS-0029": {
-    nome: "Camila Rodrigues",
+    nome: "Állex Silva Alves",
     projetovoluntario: "Ação Saúde e Comunidade",
     cargahoraria: "5h",
   },
@@ -169,12 +169,21 @@ function buscarCertificado(codigo) {
 
   // Calcula em qual pasta o arquivo deve estar
   const numero = parseInt(codigo.split("-")[3]);
-  const parte = Math.ceil(numero / 3); // 3 certificados por pasta
-  const pasta = `parte_${Math.min(parte, 10)}`; // Limita a 10 pastas
+  let parte;
+
+  // Lógica especial para parte_10 (certificados 28-31)
+  if (numero >= 28 && numero <= 31) {
+    parte = 10;
+  } else {
+    parte = Math.ceil(numero / 3); // 3 certificados por pasta para 1-27
+  }
+
+  const pasta = `parte_${parte}`;
+  const caminho = `${pasta}/${codigo}.pdf`;
 
   return {
     ...voluntarios[codigo],
-    caminho: `${pasta}/${codigo}.pdf`, // Removido 'certificados/' do caminho
+    caminho: caminho,
     existe: true,
   };
 }
