@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Download de Certificado</h1>
+      <h1>Verificação de autenticidade</h1>
       <p>
         Digite o código do seu certificado para localizá-lo e fazer o download.
       </p>
@@ -22,13 +22,15 @@
             name="codigo"
             required
             placeholder="Ex: VOL-2025-IVFS-0001"
+            pattern="VOL-2025-IVFS-\d{4}"
+            title="Formato: VOL-2025-IVFS-0001"
           />
         </div>
         <button type="submit">Buscar Certificado</button>
       </form>
 
       <div id="resultado">
-        <!-- Aqui serão exibidas as informações do certificado quando encontrado -->
+        <!-- Resultados serão exibidos aqui -->
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   margin: 0;
   padding: 20px;
@@ -13,7 +13,7 @@ body {
   padding: 30px;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -56,12 +56,24 @@ button {
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
   width: 100%;
 }
 
 button:hover {
   background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.loading {
+  color: #3498db;
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
 }
 
 .certificado-encontrado {
@@ -98,6 +110,21 @@ button:hover {
   background-color: #219653;
 }
 
+.nota {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-top: 15px;
+}
+
+.nota a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.nota a:hover {
+  text-decoration: underline;
+}
+
 .erro {
   color: #e74c3c;
   margin-top: 20px;
@@ -110,6 +137,6 @@ button:hover {
 
 @media (max-width: 600px) {
   .container {
-      padding: 20px;
+    padding: 20px;
   }
 }
