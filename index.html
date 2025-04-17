@@ -2,16 +2,34 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <title>Consulta de Certificado</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download de Certificado</title>
+    <link rel="stylesheet" href="estilo.css" />
   </head>
   <body>
     <div class="container">
-      <h2>Consultar Certificado</h2>
-      <input type="text" id="codigoInput" placeholder="Digite seu código" />
-      <button onclick="consultarCodigo()">Consultar</button>
+      <h1>Download de Certificado</h1>
+      <p>
+        Digite o código do seu certificado para localizá-lo e fazer o download.
+      </p>
 
-      <div id="resultado" class="resultado"></div>
+      <form id="formCertificado">
+        <div class="form-group">
+          <label for="codigo">Código do Certificado:</label>
+          <input
+            type="text"
+            id="codigo"
+            name="codigo"
+            required
+            placeholder="Ex: VOL-2025-IVFS-0001"
+          />
+        </div>
+        <button type="submit">Buscar Certificado</button>
+      </form>
+
+      <div id="resultado">
+        <!-- Aqui serão exibidas as informações do certificado quando encontrado -->
+      </div>
     </div>
 
     <script src="script.js"></script>
