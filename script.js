@@ -173,7 +173,7 @@ function buscarCertificado(codigo) {
   }
 
   // Calcula em qual pasta o arquivo deve estar
-  const numero = parseInt(codigo.split("-")[3]);
+  const numero = parseInt(codigo.split("-")[4]);
   let parte;
 
   // Lógica especial para parte_10 (certificados 28-31)
