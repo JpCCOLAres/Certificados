@@ -161,7 +161,6 @@ const voluntarios = {
     cargahoraria: "5h",
   },
 };
-
 // Lista de pastas onde os PDFs estão divididos (em ordem)
 const pastasPDFs = Array.from({ length: 10 }, (_, i) => `parte_${i + 1}`);
 
@@ -173,11 +172,11 @@ function buscarCertificado(codigo) {
   }
 
   // Calcula em qual pasta o arquivo deve estar
-  const numero = parseInt(codigo.split("-")[4]);
+  const numero = parseInt(codigo.split("-")[3]);
   let parte;
 
   // Lógica especial para parte_10 (certificados 28-31)
-  if (numero >= 28 && numero <= 31) {
+  if (numero >= 28 && numero <= 32) {
     parte = 10;
   } else {
     parte = Math.ceil(numero / 3); // 3 certificados por pasta para 1-27
